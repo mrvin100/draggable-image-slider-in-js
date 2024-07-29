@@ -1,0 +1,126 @@
+/* Custom css file made by JeanDoe */
+
+@charset 'utf-8';
+
+/* Import items */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+/* declaration of root variables */
+
+:root{
+    /* fonts */
+    --body-font: 'Poppins', Arial, sans-serif;
+
+    /* colors */
+    --white: #fff;
+    --black: #000;
+    --white-bg: #faf9f9;
+    --light-bg: #d1e1f1;
+}
+
+/* Initialisations of tags */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-family: var(--body-font);
+}
+
+
+/* bases */
+
+html{
+    font-size: 90%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-size: 0.938rem;
+    font-weight: normal;
+    background: var(--white-bg);
+    padding: 1.5rem;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+/* resusables classes */
+
+.images .wrapper{
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background: var(--white-bg);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    position: relative;
+}
+
+.images .carousel{
+    font-size: 0;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.images .carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.images .carousel.dragging img{
+    pointer-events: none;
+}
+
+.images .carousel img{
+    height: 340px;
+    object-fit: cover;
+    user-select: none;
+    width: calc(100% / 3);
+    margin-left: 1rem;
+}
+
+.images .carousel img:first-child{
+    margin-left: 0;
+}
+
+.images button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform .1s linear;
+}
+
+.images button:active{
+    transform: translateY(-50%) scale(0.9);
+}
+
+
+.images button#prev{
+    left: -1.5rem;
+    display: none;
+}
+
+.images button#next{
+    right: -1.5rem;
+}
+
+@media  (max-width: 900px) {
+    .images .carousel img{
+        width: calc(100% / 2);
+    }
+}
+
+@media  (max-width: 550px) {
+    .images .carousel img{
+        width: 100%;
+    }
+}
